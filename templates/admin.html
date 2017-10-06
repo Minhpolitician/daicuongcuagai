@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div clas="container">
+<table class="table table-striped">
+  <thead>
+    <tr>
+    <th >STT</th>
+    <th > Loại</th>
+    <th > Mô tả</th>
+    <th > Ảnh</th>
+    <th> Thao tác </th>
+  </tr>
+  </thead>
+  <tbody>
+{% for girl_type in girl_types %}
+<tr>
+  <td>{{ loop.index}} </td>
+  <td>{{girl_type.name}}</td>
+  <td>{{girl_type.description}}</td>
+  <td><a target="_blank" href="{{girl_type.image}}">ahihi cho xem ảnh đi</a> </td>
+  <td>
+  <a href=>    <i class="fa fa-pencil" aria-hidden="true"></i>  </a> <br>
+  <a href="/delete_girl_type/{{ girl_type.id }}">   <i class="fa fa-trash" aria-hidden="true"></i> </a>
+  </td>
+</tr>
+{% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}
